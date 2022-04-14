@@ -1,5 +1,5 @@
 <h1 align="center">Hola 👋,yo soy Facundo Tissera</h1>
-<h3 align="center">aficionado al desarrollo web front-end en react</h3>
+<h3 align="center">Apacionado en desarrollo web front-end en react</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=facundotissera&label=Profile%20views&color=0e75b6&style=flat" alt="facundotissera" /> </p>
 
@@ -7,7 +7,7 @@
 
 <h3 align="left">Conéctese conmigo:</h3>
 <p align="left">
-<a href="https://linkedin.com/en/https://www.linkedin.com/en/facundo-tissera/" target="blank"><img align="center" src="https: //raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in /facundo-tissera/" height="30" width="40" /></a>
+<a href="https://linkedin.com/en/facundo-tissera/" target="blank"><img align="center" src="https: //raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/facundo-tissera/" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Idiomas y Herramientas:</h3>
