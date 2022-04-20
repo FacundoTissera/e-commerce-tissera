@@ -2,7 +2,7 @@
 
 function ItemListContainer() {
 
-    // creacion de carrito  
+    // creacion de contador
 
   return (
     <div>ItemListContainer</div>

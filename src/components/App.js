@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import ItemListContainer from "./ItemListContainer";
 
 // importacion de estilos 
-import "../assets/sass/app.scss";
+// import "../assets/sass/app.scss";
 
 function App() {
   return (
