@@ -1,5 +1,10 @@
+// rutas de otros componentes
+import CartWidget from "./CartWidget";
 
-import "../assets/sass/navBar.scss"
+// importacion de estilos
+import "../assets/sass/navBar.scss";
+
+
 
 function NavBar() {
 
@@ -15,7 +20,9 @@ function NavBar() {
                 <a href="&" className="nav-link">PRODUCTOS</a>
                 <a href="&" className="nav-link">NOSOTROS</a>
                 <a href="&" className="nav-link">LOGIN</a>
-            </div>    
+                
+            <CartWidget />    
+            </div>
         </nav>
     </>
   )

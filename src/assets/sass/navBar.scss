@@ -12,11 +12,11 @@ nav {
         .logo-nav-bar {
         width: 26%;
         }
-    .contenedor-links{
+    .contenedor-links {
         display: flex;
         justify-content: space-around;
 
-            .nav-link{
+            .nav-link, .cart-shopping{
                 color: #000;
                 font-size: 1.2rem;
                 font-weight: bold;
@@ -31,7 +31,7 @@ nav {
                 }
             }
     }
-       
+    
 }
 
 
