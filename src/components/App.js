@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="principal-container">
       <NavBar />
-      <ItemListContainer />
+      <ItemListContainer producto="Coca-Cola" >
+        <p>500Ml</p>
+      </ItemListContainer>
     </div>
   );
 }

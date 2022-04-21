@@ -1,11 +1,15 @@
 
 
-function ItemListContainer() {
+function ItemListContainer({ producto, children }) {
 
     // creacion de contador
 
   return (
-    <div>ItemListContainer</div>
+    <div>
+      {producto}
+      {children} 
+    </div>
+
   )
 }
 
