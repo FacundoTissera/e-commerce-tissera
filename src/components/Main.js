@@ -4,7 +4,7 @@ import ItemListContainer from './ItemListContainer';
 function Main() {
     return (
         <>
-            <ItemListContainer producto="Coca-Cola" />
+            <ItemListContainer titulo={'NUESTROS PRODUCTOS'} />
                
         </>
     )

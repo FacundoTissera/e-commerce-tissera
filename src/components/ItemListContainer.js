@@ -25,13 +25,13 @@ let productos = [
       
   }
 ]
-function ItemListContainer({ producto  }) {
+function ItemListContainer({titulo}) {
 
     // creacion de contador
 
   return (
     <div>
-      {producto}
+      {/* <h1 >{titulo}</h1> */}
       <ItemCount productos={productos} stock={10} inicial={1} />    
     </div>
 

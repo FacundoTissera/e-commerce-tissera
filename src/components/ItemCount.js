@@ -34,6 +34,7 @@ function ItemCount({ stock, inicial, productos }) {
 
     return (
         <>
+        
         <div className='container-btns'>
             {
                 productos.map((producto, i) => {
