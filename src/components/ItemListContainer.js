@@ -1,13 +1,13 @@
+import ItemCount from "./ItemCount";
 
-
-function ItemListContainer({ producto, children }) {
+function ItemListContainer({ producto  }) {
 
     // creacion de contador
 
   return (
     <div>
       {producto}
-      {children} 
+      <ItemCount stock={10} inicial={1} />    
     </div>
 
   )

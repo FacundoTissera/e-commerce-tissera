@@ -1,0 +1,35 @@
+.container-btns{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 10px;
+
+    .container-min-plus{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+        .btn-count, .btn-add{
+            color: #000;
+            font-size: 15px;
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+            border: none;
+            margin: 10px;
+
+            &:hover{
+                background-color: #F35C17;
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+        .btn-add{
+            width: 65%;
+        }
+       
+}

@@ -1,19 +1,19 @@
 
 // importacion de componentes 
-import NavBar from "./NavBar";
-import ItemListContainer from "./ItemListContainer";
+import Header from "./Header";
+import Main from "./Main";
+
+
 
 // importacion de estilos 
 // import "../assets/sass/app.scss";
 
 function App() {
   return (
-    <div className="principal-container">
-      <NavBar />
-      <ItemListContainer producto="Coca-Cola" >
-        <p>500Ml</p>
-      </ItemListContainer>
-    </div>
+    <>
+      <Header />
+      <Main />
+    </>
   );
 }
 
