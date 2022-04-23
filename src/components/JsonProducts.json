@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "producto": "Coca Cola",
+        "precio": "2.00",
+        "stock": "8",
+        "categoria": "Bebidas"
+        
+    },
+    {
+        "id": "2",
+        "producto": "Fanta",
+        "precio": "2.00",
+        "stock": "11",
+        "categoria": "Bebidas"
+        
+    },
+    {
+        "id": "3",
+        "producto": "Sprite",
+        "precio": "2.00",
+        "stock": "10",
+        "categoria": "Bebidas"
+        
+    }
+]
