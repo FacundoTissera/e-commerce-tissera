@@ -1,4 +1,4 @@
-import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 let productos = [
   {
       "id": "1",
@@ -20,9 +20,16 @@ let productos = [
       "id": "3",
       "nombre": "Sprite",
       "precio": "2.00",
-      "stock": "10",
+      "stock": "80",
       "categoria": "Bebidas"
       
+  },
+  {
+      "id": "4",
+      "nombre": "Pepsi",
+      "precio": "2.00",
+      "stock": "10",
+      "categoria": "Bebidas"
   }
 ]
 function ItemListContainer({titulo}) {
@@ -32,7 +39,7 @@ function ItemListContainer({titulo}) {
   return (
     <div>
       {/* <h1 >{titulo}</h1> */}
-      <ItemCount productos={productos} stock={10} inicial={1} />    
+      <ItemList productos={productos} />    
     </div>
 
   )
