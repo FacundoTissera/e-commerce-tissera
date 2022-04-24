@@ -3,17 +3,22 @@ import { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import swAlert from "@sweetalert/with-react";
 import "../assets/sass/itemCount.scss";
+import Item from './Item';
 
 
 
 function ItemCount({ productos }) {
+    
+    //contador de productos
     const [count, setCount] =  useState(0);
     
+    // estado de productos de base de datos
     const [productosCount, setProductosCount] = useState([]);
     
+    // estado de boton agregado o no 
     const [agregar, setAgregar] = useState(false);
 
-    
+    // contador mas e implementacion de swalert para agregar productos al carrito
     const contadorAdd =  () => {
         productos.forEach(element => {
             if(element.stock < count){
@@ -30,6 +35,7 @@ function ItemCount({ productos }) {
         });
     }
     
+    // contador menos e implementacion eliminar contador productos del carrito
     const contadorMinus =  () => {
         
         if (count < 1) {
@@ -40,6 +46,7 @@ function ItemCount({ productos }) {
         
     };
     
+    // boton de agregar al carrito con alerta para agragado
     const addProduct = () => {
         setAgregar(true);
         swAlert({
@@ -51,8 +58,9 @@ function ItemCount({ productos }) {
     }
     
    
-        
+        // estado de productos con 3 seg de demora como simulacion de consulta
      useEffect(() => {
+
          setTimeout(() => {
             setProductosCount(productos)
 
@@ -90,29 +98,13 @@ function ItemCount({ productos }) {
             {
                 productosCount.map((producto, i) => {
                     return (
-                        <div className='container-productos' key={i}>
-                            <div >
-                                <p>{producto.nombre}</p>
-                                <p>${producto.precio}</p>
-                                <p>{producto.categoria}</p>
-                                <p>El stock de este producto es de {producto.stock}</p>
-                            </div>    
-                        
-                            <div  className='container-min-plus'>
-
-                                <button className='btn-count' onClick={contadorMinus}>➖ </button>
-                                    <span>{count}</span>
-                                <button className='btn-count' onClick={contadorAdd}>➕ </button>
-                            </div>
-                            <button className='btn-add' onClick={addProduct}>AGREGAR AL CARRITO</button>
-                                
-                            <button className='btn-add' ><a href="/item"> IR AL DETALLE </a></button>
-                            
-                        </div>
-                    )
-                })
+                        // creacion de DESTRUCTURACION para el componente Item
+                        i < 8 ? <Item data={producto} key={producto.id} contadormas={contadorAdd} contadormenos={contadorMinus} agregar={addProduct} count= {count}/> : null
+                        )
+                    })
             }
-                
+
+
         </div>
         </>
     )
