@@ -1,45 +1,59 @@
 import ItemList from "./ItemList";
-let productos = [
-  {
-      "id": "1",
-      "nombre": "Coca Cola",
-      "precio": "2.00",
-      "stock": "8",
-      "categoria": "Bebidas"
-      
-  },
-  {
-      "id": "2",
-      "nombre": "Fanta",
-      "precio": "2.00",
-      "stock": "11",
-      "categoria": "Bebidas"
-      
-  },
-  {
-      "id": "3",
-      "nombre": "Sprite",
-      "precio": "2.00",
-      "stock": "80",
-      "categoria": "Bebidas"
-      
-  },
-  {
-      "id": "4",
-      "nombre": "Pepsi",
-      "precio": "2.00",
-      "stock": "10",
-      "categoria": "Bebidas"
-  }
-]
-function ItemListContainer({titulo}) {
+//  traigo en un json llos productos de la base de datos
+import productos from "./productos.json"; 
+import { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
 
-    // creacion de contador
+import "../assets/sass/itemCount.scss";
+
+
+function ItemListContainer() {
+
+     // estado de productos de base de datos
+    const [productosCount, setProductosCount] = useState([]);
+
+     // estado de productos con 3 seg de demora como simulacion de consulta
+
+  useEffect(() => { 
+
+      setTimeout(() => {
+        const pedido =  new Promise((res, rej) => {
+          res(productos);
+      })
+      pedido.then(data => { 
+        setProductosCount(data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }, 3000);
+        
+  },[]);
+        
+ // let promesa = new Promise((resolve, reject) => {
+
+ //     console.log("Promesa pendiente");
+
+ //     setTimeout(() => {
+ //         resolve(productos);
+ //     }, 2000);
+ //     setTimeout(() => {
+ //         reject("Promesa rechazada");
+ //     }, 3000);
+ // });
+  
+ // promesa
+ //         .then((response) => {
+ //             console.log('response:', response);
+ //         })
+ //         .catch((error) => {
+ //             console.log('error:', error); 
+ //         });
 
   return (
     <div>
-      {/* <h1 >{titulo}</h1> */}
-      <ItemList productos={productos} />    
+      
+      <ItemList productos={productosCount} />    
     </div>
 
   )

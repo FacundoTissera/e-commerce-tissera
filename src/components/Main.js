@@ -1,11 +1,13 @@
 import React from 'react'
 import ItemListContainer from './ItemListContainer';
+import DetailContainer from './DetailContainer';
 
 function Main() {
     return (
         <>
-            <ItemListContainer titulo={'NUESTROS PRODUCTOS'} />
-               
+        <h1>NUESTROS PRODUCTOS</h1>
+            <ItemListContainer />
+            <DetailContainer />
         </>
     )
 }

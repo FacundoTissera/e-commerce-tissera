@@ -1,0 +1,34 @@
+[
+    {
+        "id": "1",
+        "nombre": "Coca Cola",
+        "precio": "2.00",
+        "stock": "8",
+        "categoria": "Bebidas",
+        "detalle": "bebida refrescante sabor cola" 
+    },
+    {
+        "id": "2",
+        "nombre": "Fanta",
+        "precio": "2.00",
+        "stock": "11",
+        "categoria": "Bebidas",
+        "detalle": "bebida refrescante sabor naranja"
+    },
+    {
+        "id": "3",
+        "nombre": "Sprite",
+        "precio": "2.00",
+        "stock": "80",
+        "categoria": "Bebidas",
+        "detalle": "bebida refrescante sabor limon"
+    },
+    {
+        "id": "4",
+        "nombre": "Pepsi",
+        "precio": "2.00",
+        "stock": "10",
+        "categoria": "Bebidas",
+        "detalle": "bebida refrescante sabor pepsi"
+    }
+  ]
