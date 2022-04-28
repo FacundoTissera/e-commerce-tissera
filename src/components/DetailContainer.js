@@ -20,7 +20,7 @@ function DetailContainer() {
       .catch(err => {
         console.log(err);
       })
-    }, 1000);
+    }, 5000);
       
   }, []);
 
@@ -29,12 +29,12 @@ function DetailContainer() {
     <>
         {producto.length === 0 && <p>Cargando...</p>}
         {
-            producto.map((detail)=>{
+            producto.map((detail,i)=>{
                 return (
-                      <ItemDetail data={detail} />
-                )
-            })
-        }
+                  <ItemDetail data={detail} key={i} />
+                  )
+                })
+              }
     
 
     </>
