@@ -1,8 +1,11 @@
 
-// importacion de componentes 
-import Header from "./Header";
-import Main from "./Main";
+import { Route, Routes } from "react-router-dom";
 
+
+// importacion de componentes 
+import Header from "./header/Header";
+import Inicio from "./inicio/Inicio";
+import ProductoDetalleContainer from "./productos/ProductoDetalleContainer";
 
 
 // importacion de estilos 
@@ -12,7 +15,13 @@ function App() {
   return (
     <>
       <Header />
-      <Main />
+
+      <Routes>
+        <Route exact path="/" element={<Inicio />} />
+        <Route path="/detalle" element={<ProductoDetalleContainer />} />
+
+      </Routes>
+      
     </>
   );
 }
