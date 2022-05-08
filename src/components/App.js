@@ -6,10 +6,13 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./header/Header";
 import Inicio from "./inicio/Inicio";
 import ProductoDetalleContainer from "./productos/ProductoDetalleContainer";
+import Carrito from "./carrito/Carrito";
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 
 // importacion de estilos 
-// import "../assets/sass/app.scss";
+ import "../assets/sass/app.scss";
 
 function App() {
   return (
@@ -19,9 +22,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="/detalle" element={<ProductoDetalleContainer />} />
-
+        <Route path="/carrito" element={<Carrito />} />
       </Routes>
-      
+      <ToastContainer />
     </>
   );
 }

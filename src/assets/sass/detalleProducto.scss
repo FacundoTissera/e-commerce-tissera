@@ -1,0 +1,78 @@
+.titulo-detalle-producto{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    margin: 20px 0 ;
+    padding: 5px 15px ;
+    background-color: #f35d17de;
+}
+
+.container{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+        .container-detalle{
+            display: flex;
+            flex-direction: row;
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            margin-top: 20px;
+            width: 80%;
+            
+                .img-detalle{
+                    width: 30%;
+                    margin: 0 15px;
+                }
+                .container-hijo-detalle{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: flex-end;
+                
+                        .nombre-producto{
+                            width: 70%;
+                            margin: 0 15px;
+                            font-size: 25px;
+                            font-weight: bold;  
+                        }
+
+                    .datos-detalle{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        width: 72%;
+                        margin-top: 25px;
+
+                            .precio{
+                                
+                                margin-bottom: 10px;
+                                font-size: 36px;
+                            }   
+                            .categoria{
+                                font-size: 18px;
+                                font-weight: bold;
+
+                            }
+                            .descripcion{
+                                font-size: 18px;
+                                
+
+                                .span-descripcion{
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    color: #000;
+                                }
+                            }
+                            .stock{
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #26a564;
+                            }
+                    }
+
+                }
+        }
+}

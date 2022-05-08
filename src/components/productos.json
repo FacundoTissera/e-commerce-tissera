@@ -29,6 +29,7 @@
         "precio": "2.00",
         "stock": "10",
         "categoria": "Bebidas",
-        "detalle": "bebida refrescante sabor pepsi"
+        "detalle": "bebida refrescante sabor pepsi",
+        "imagen": ""
     }
   ]

@@ -1,41 +1,74 @@
+
 .container-btns{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    width: 70%;
     margin-top: 10px;
 
     .container-min-plus{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        width: 100%;
+        width: 23%;
         margin-top: 10px;
-    }
-        .btn-count, .btn-add{
-            color: #000;
+
+            .btn-count, .btn-add{
+                color: #000;
+                font-size: 15px;
+                padding: 5px 10px;
+                border-radius: 6px;
+                transition: all 0.3s ease-in-out;
+                border: none;
+                margin: 10px;
+                
+                &:hover{
+                    background-color: #F35C17;
+                    color: #fff;
+                    
+                }
+            }
+            .btn-add{
+                width: 73%;
+            }
+            .span-contador{
+                font-size: 20px;
+                font-weight: bold;
+                color: #000;
+                margin: 10px;
+
+            }
+            .container-productos{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            
+        }
+        .btn-agregar-carrito{
+            width: 100%;
+            background-color: #F35C17;
+            color: #fff;
             font-size: 15px;
             padding: 5px 10px;
             border-radius: 6px;
-            transition: all 0.3s ease-in-out;
+            
+            // transform: rotate(-1deg);
+            transition: all , background 6s, height 10ms;
             border: none;
             margin: 10px;
-
+            
             &:hover{
-                background-color: #F35C17;
-                color: #fff;
-                
+                background-color: #fff;
+                color: #F35C17;
+                // height: 50px;
+                font-weight: bold;
+                border: 1px solid #F35C17;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px #F35C17;
+
             }
         }
-        .btn-add{
-            width: 73%;
-        }
-        .container-productos{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { toast } from "react-toastify";
 
 import InicioItemDetail from './InicioItemDetail';
 // import productos from '../productos.json';
 import axios from 'axios';
+
+import '../../assets/sass/inicio.scss'
 
 
 
@@ -12,19 +15,22 @@ function InicioContainer() {
     const [productosCount, setProductosCount] = useState([]);
 
     useEffect(() => {
-    
-      const URL ='https://fakestoreapi.com/products?limit=8';     
-          axios.get(URL)
-            .then(response => {
-              setProductosCount(response.data);
-            })
-        
-        .catch(err => {
-            console.log(err);
-        }
-        )
+      toast.info("Cargando productos...")
+      
+      const URL ='https://fakestoreapi.com/products';     
+      axios.get(URL)
+      .then(response => {
+        toast.dismiss();
+        setProductosCount(response.data);
+        toast.success("Productos cargados!")
+      })
+      
+      .catch(err => {
+        console.log(err);
+      }
+      )
     }, []);
-    console.log(productosCount);
+    // console.log(productosCount);
     //     setTimeout(() => {
     //       const pedido = new Promise((resolve, reject) => {
     //         resolve(productos);
@@ -39,12 +45,14 @@ function InicioContainer() {
     // }, [productosCount]);
   return (
     <>
+      <h2 className='titulo-inicio'>INICIO</h2>
+          <h4 className='titulo-inicio sub-titulo'>NUESTRO CATALOGO</h4>
     {productosCount.length === 0 && <p>Cargando...</p> }
     <div className='container-product'>
       {
-        productosCount.map(producto => {
+        productosCount.map((producto, i) => {
           return (
-            <InicioItemDetail data={producto} key={producto.id} />
+            i < 6 ? <InicioItemDetail data={producto} key={producto.id} /> : null
             )
           })
         }

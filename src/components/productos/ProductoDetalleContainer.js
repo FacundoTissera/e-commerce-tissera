@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { toast } from "react-toastify";
 import axios from 'axios';
 import DetalleProducto from './DetalleProducto';
 
@@ -15,13 +16,17 @@ function ProductoDetalleContainer() {
 
     const [productocount, setProductocount] = useState(null);
 
-    useEffect(() =>  {     
+    useEffect(() =>  {   
+        toast.info("Cargando productos...")
+  
         setTimeout(() => {
 
             const URL = `https://fakestoreapi.com/products/${productoID}`;
             axios.get(URL)
                 .then(response => {
+                    toast.dismiss();
                     setProductocount(response.data);
+                    toast.success("Productos cargados!")
                 })
                 .catch(err => {
                     console.log(err);
@@ -37,7 +42,7 @@ function ProductoDetalleContainer() {
             // .catch(err => {
             //     console.log(err);
             // })
-        },2000);
+        },1000);
         
     } , [productoID]);
 
@@ -45,9 +50,9 @@ function ProductoDetalleContainer() {
 
   return (
     <div>
-        <h2>DETALLE PRODUCTO</h2>
-        {!productocount  && <p>Cargando...</p> }
+        
         <DetalleProducto data={productocount} />
+        {!productocount  && <p>Cargando...</p> }
     </div>
   )
 }
