@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { toast } from "react-toastify";
+import BeatLoader from "react-spinners/BeatLoader";
 
 import InicioItemDetail from './InicioItemDetail';
 // import productos from '../productos.json';
@@ -47,7 +48,7 @@ function InicioContainer() {
     <>
       <h2 className='titulo-inicio'>INICIO</h2>
           <h4 className='titulo-inicio sub-titulo'>NUESTRO CATALOGO</h4>
-    {productosCount.length === 0 && <p>Cargando...</p> }
+    {productosCount.length === 0 &&  <BeatLoader/>}
     <div className='container-product'>
       {
         productosCount.map((producto, i) => {

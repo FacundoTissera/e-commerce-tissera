@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { toast } from "react-toastify";
 import axios from 'axios';
 import DetalleProducto from './DetalleProducto';
+import BeatLoader from "react-spinners/BeatLoader";
 
 // import productos from '../productos.json';
 
@@ -52,7 +53,7 @@ function ProductoDetalleContainer() {
     <div>
         
         <DetalleProducto data={productocount} />
-        {!productocount  && <p>Cargando...</p> }
+        {!productocount  && <BeatLoader /> }
     </div>
   )
 }

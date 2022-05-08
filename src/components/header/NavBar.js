@@ -8,13 +8,17 @@ import { Link } from 'react-router-dom';
 
 import "../../assets/sass/navBar.scss";
 
+import { useContext } from 'react';
 
+import { contexto } from '../ProviderContext';
 
 
 
 
 function NavBar() {
 
+  const { cantidad_total } = useContext(contexto);
+  
 
   return (
     <>
@@ -28,7 +32,7 @@ function NavBar() {
                 <Link to="/nosotros" className="nav-link">NOSOTROS</Link>
                 <Link to="/login" className="nav-link">LOGIN</Link>
                 
-                <Link to="/carrito" className="nav-link"> CARRITO  </Link>      
+                <Link to="/carrito" className="nav-link"> CARRITO {cantidad_total}  </Link>      
             </div>
         </nav>
     </>

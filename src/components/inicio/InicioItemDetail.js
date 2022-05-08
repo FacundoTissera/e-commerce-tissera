@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+
 
 import '../../assets/sass/inicio.scss'
 
 function InicioItemDetail({data}) {
+
+    const navigate = useNavigate();
+
+  const verDetalle = () => {
+    navigate(`/detalle?productoID=${data.id}`);
+  }
   return (
    
     <>
@@ -12,7 +19,7 @@ function InicioItemDetail({data}) {
               <img className='img-product' src={data.image} alt={data.title} />
               <p className='precio-productos' >Price: ${data.price}</p>
               {/* <p>Category: {data.category}</p> */}
-              <Link to={`/detalle?productoID=${data.id}`}><button className='btn-ver-detalle'>Ver Detalle</button></Link>
+              <button className='btn-ver-detalle' onClick={verDetalle}>Ver Detalle</button>
 
     </div>
     </>

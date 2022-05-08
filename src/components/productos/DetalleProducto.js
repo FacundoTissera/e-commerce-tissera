@@ -1,4 +1,5 @@
-import React from 'react'
+import { useState, useContext } from 'react'
+import { contexto } from '../ProviderContext';
 
 import ItemCount from '../contadorProductos/ItemCount';
 
@@ -6,6 +7,15 @@ import '../../assets/sass/detalleProducto.scss'
 
 function DetalleProducto({data}) {
 
+  const [itemCarrito, setItemCarrito] = useState(0);
+  const { agregarProducto } = useContext(contexto);
+
+  const onAdd = (count) => {
+    console.log(count);
+    setItemCarrito(count);
+    agregarProducto(data, count);
+    
+  }
   return (
     <>
         <h2 className="titulo-detalle-producto">DETALLE PRODUCTO</h2>
@@ -27,7 +37,9 @@ function DetalleProducto({data}) {
                         <p className='stock'>Stock del producto : {data.rating.count}</p>
                         </div>
 
-                        <ItemCount />
+                          {itemCarrito >=1 ? <p className='stock'>Producto agregado al carrito</p>: null}
+
+                        <ItemCount  onAdd={onAdd} />
                     </div>
                 </div>
             </div>
