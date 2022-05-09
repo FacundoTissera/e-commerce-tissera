@@ -39,14 +39,6 @@ const navigate = useNavigate();
     }
 
 
-    // boton de agregar al carrito con alerta para agragado
-
-
-
-        // contador menos e implementacion eliminar contador productos del carrito
-     
-
-        // boton de agregar al carrito con alerta para agragado
 
     //     const addProduct = () => {
 

@@ -33,6 +33,9 @@ function ProductoDetalleContainer() {
                     console.log(err);
                 })
 
+                
+        // COMO QUEDARIA CON LA CREACION DE UNA PROMESA 
+
             // const pedido = new Promise((resolve, reject) => {
             //     resolve(productos);
             // })
