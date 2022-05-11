@@ -6,8 +6,8 @@ const { Provider } = contexto;
 function ProviderContext({ children }) {
 
     const [ carrito, setCarrito ] = useState([]);
-    const [ cantidad_total, setCantidad_total ] = useState(0);
-    const [ precio_total, setPrecio_total ] = useState(0);
+    const [ cantidadTotal, setCantidadTotal ] = useState(0);
+    const [ precioTotal, setPrecioTotal ] = useState(0);
 
 
     // AGREGO PRODUCTO AL CARRITO
@@ -16,17 +16,13 @@ function ProviderContext({ children }) {
 
         if(estaEnCarrito(producto.id)){
           const newCarrito = [...carrito];
-            for (const elemento of newCarrito) {
-              if (elemento.producto.id === producto.id) {
-                producto.rating.count = it.stock + stock;
-              }
-            }
+          
             setCarrito(newCarrito);
             
           }else{
             setCarrito([...carrito, {producto, stock}]);
-            setCantidad_total(stock);
-            setPrecio_total(producto.price * stock);
+            setCantidadTotal(stock);
+            setPrecioTotal(producto.price * stock);
         }
       }
 
@@ -51,8 +47,8 @@ function ProviderContext({ children }) {
     
     const valorDelContexto = {
         carrito,
-        cantidad_total,
-        precio_total,
+        cantidadTotal,
+        precioTotal,
         agregarProducto,
         eliminarProducto,
         vaciarCarrito,

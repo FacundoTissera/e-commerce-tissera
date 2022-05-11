@@ -4,26 +4,35 @@ import { contexto } from '../ProviderContext';
 
 function Carrito() {
 
-    const { cantidad_total, carrito } = useContext(contexto);
+    const { carrito, precioTotal } = useContext(contexto);
     // console.log(carrito.forEach(element => element.producto.title));
     // console.log(cantidad_total);
 
   return (
     <div>
       <h1>Carrito</h1>
-      <p> Total de productos en Carrito es de {cantidad_total} </p> 
-      <p> los productos en el carrito son: </p>
-        <ul>
-            {
-              carrito.map((element, i)=>{
-                return(
-                  <li key={i}>
-                    {element.producto.title}
-                  </li>
-                )
-              })
-            }
+
+    
+        <p> los productos en el carrito son: </p>
+      <ul>
+      {
+
+        carrito.map(item => {
+          return (
+            <div key={item.producto.id}>
+              <li>
+                <p>{item.producto.title}</p>
+                <p>{item.stock}</p>
+                <p>$ {item.producto.price}</p>
+              </li>
+            </div>
+            
+            )
+          })
+        }
         </ul>
+       
+      <p> el precio total a pagar es de: $ {precioTotal} </p>
      
         
       

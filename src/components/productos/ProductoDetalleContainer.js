@@ -46,7 +46,7 @@ function ProductoDetalleContainer() {
             // .catch(err => {
             //     console.log(err);
             // })
-        },1000);
+        },100);
         
     } , [productoID]);
 
