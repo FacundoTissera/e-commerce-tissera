@@ -72,7 +72,17 @@
                                 color: #26a564;
                             }
                     }
-
+                    
+                    .btn-agregar-carrito{
+                        background-color: #F35C17;
+                        color: #fff;
+                        font-size: 18px;
+                        padding: 5px 10px;
+                        border-radius: 6px;
+                        transition : color 0.3s ease-in-out 2s;
+                        border: none;
+                        margin: 10px;
+                    }
                 }
         }
 }

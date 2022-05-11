@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { contexto } from '../ProviderContext';
 
 import ItemCount from '../contadorProductos/ItemCount';
@@ -6,7 +7,7 @@ import ItemCount from '../contadorProductos/ItemCount';
 import '../../assets/sass/detalleProducto.scss'
 
 function DetalleProducto({data}) {
-
+  const navigate = useNavigate();
   const [itemCarrito, setItemCarrito] = useState(0);
   const { agregarProducto } = useContext(contexto);
 
@@ -15,6 +16,10 @@ function DetalleProducto({data}) {
     setItemCarrito(count);
     agregarProducto(data, count);
     
+  }
+
+  const goToCart = () => {
+    navigate('/carrito');
   }
   return (
     <>
@@ -37,9 +42,9 @@ function DetalleProducto({data}) {
                         <p className='stock'>Stock del producto : {data.rating.count}</p>
                         </div>
 
-                          {itemCarrito >=1 ? <p className='stock'>Producto agregado al carrito</p>: null}
+                          {itemCarrito >=1 ? <button className='btn-agregar-carrito' onClick={goToCart} >IR AL CARRITO</button>: null}
 
-                        <ItemCount  onAdd={onAdd} />
+                        <ItemCount  onAdd={onAdd} init={1} stock={data.rating.count}/>
                     </div>
                 </div>
             </div>

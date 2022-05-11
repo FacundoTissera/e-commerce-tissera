@@ -1,28 +1,38 @@
 import React from 'react';
 import { useState } from 'react';
-// import swAlert from "@sweetalert/with-react";
+import swAlert from "@sweetalert/with-react";
 
 import '../../assets/sass/itemCount.scss';
-import { useNavigate } from 'react-router-dom';
 
-function ItemCount({onAdd}) {
+
+function ItemCount({onAdd , init, stock}) {
     
+    console.log(stock);
+    const [count, setCount] =  useState(init);
 
-    const [count, setCount] =  useState(0);
 
-const navigate = useNavigate();
 
 
     const addToCart = () => {
         onAdd(count);
-        navigate('/carrito');
+       
     }
     
     
 
      // contador mas e implementacion de swalert para agregar productos al carrito
     const contadorAdd =  () => {
-        setCount(count + 1);
+        if(count < stock){
+            setCount(count + 1);
+        }else{
+            swAlert({
+                title: "No hay stock",
+                text: "No hay stock disponible",
+                icon: "warning",
+                button: "OK",
+                dangerMode: true
+            });
+        }
     }
 
 
