@@ -11,10 +11,10 @@ function DetalleProducto({data}) {
   const [itemCarrito, setItemCarrito] = useState(0);
   const { agregarProducto } = useContext(contexto);
 
-  const onAdd = (count) => {
-    console.log(count);
-    setItemCarrito(count);
-    agregarProducto(data, count);
+  const onAdd = (cantidad) => {
+  // console.log(cantidad);
+    setItemCarrito(cantidad);
+    agregarProducto(data, cantidad);
     
   }
 

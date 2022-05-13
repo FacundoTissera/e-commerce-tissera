@@ -1,39 +1,98 @@
 import { useContext } from 'react';
-
+import swAlert from "@sweetalert/with-react";
+import {  useNavigate } from 'react-router-dom';
 import { contexto } from '../ProviderContext';
+
+// estilos
+
+import '../../assets/sass/carrito.scss'
 
 function Carrito() {
 
-    const { carrito, precioTotal } = useContext(contexto);
+const navigate = useNavigate();
+
+
+    const { carrito, precioTotal, cantidadTotal, eliminarProducto } = useContext(contexto);
     // console.log(carrito.forEach(element => element.producto.title));
     // console.log(cantidad_total);
+// console.log(carrito);
+
+  // terminar compra y mandar a la pagina de pago
+
+    const terminarCompra = () => {
+      swAlert({
+        title: "¡Compra Terminada!",
+        text: "La compra se ha realizado con éxito",
+        icon: "success",
+        button: "OK",
+    });
+  }
+
+  // retorno a la pagina de inicio si no hay nada en el carrito
+  const volverInicio = () => {
+    navigate('/');
+  }
+
+
 
   return (
-    <div>
-      <h1>Carrito</h1>
-
-    
-        <p> los productos en el carrito son: </p>
-      <ul>
+    <div className='container-carrito'>
+      <h1>CARRITO</h1>
       {
-
-        carrito.map(item => {
-          return (
-            <div key={item.producto.id}>
-              <li>
-                <p>{item.producto.title}</p>
-                <p>{item.stock}</p>
-                <p>$ {item.producto.price}</p>
-              </li>
-            </div>
-            
-            )
-          })
-        }
-        </ul>
+        carrito.length === 0 && 
+          <div>
+            <h2>Tu carrito está vacío</h2>
+            <p>¿No sabés qué comprar? ¡Miles de productos te esperan!</p>
+            <button onClick={ volverInicio }>volver al inicio</button>
+          </div>
+      }
        
-      <p> el precio total a pagar es de: $ {precioTotal} </p>
-     
+          {/* <article className="listado-edit">
+            <table className="tabla">
+              <thead>
+                <tr className="columnas">
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                </tr>
+              </thead>
+              <tbody> */}
+              <div className='container-carrito-principal'>
+                {
+                  carrito.map((item, i) => {
+                    // console.log(item.producto.category);
+                    return  (
+                      
+                          <div className='container-producto' key={item.producto.id}>
+                              <img className='img-carrito' src={item.producto.image} alt={item.producto.title} />
+                              <div>
+                                <h4>{ item.producto.title.substring(0,20) }... </h4> 
+                              </div>
+                              <div>
+                                <span>{ item.cantidad }</span>
+                              </div>
+                              <div>
+                                <span> ${ item.producto.price } </span> 
+                              </div>
+                            <button onClick={ eliminarProducto } >Borrar</button>
+                        </div>
+                        
+                        
+                        )
+                      })
+                    }
+              </div>
+              {/* </tbody>
+            </table>
+          </article> */}
+
+    {
+      carrito.length > 0 && <div>
+          <button onClick={ terminarCompra } >TERMINAR MI COMPRA</button>
+          <p> el precio total a pagar es de: $ { precioTotal }  </p>
+          <p>cantidad total { cantidadTotal }</p>
+      </div>
+    }
         
       
     </div>

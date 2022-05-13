@@ -7,7 +7,7 @@ import '../../assets/sass/itemCount.scss';
 
 function ItemCount({onAdd , init, stock}) {
     
-    console.log(stock);
+    // console.log(stock);
     const [count, setCount] =  useState(init);
 
 

@@ -11,8 +11,12 @@ function ProviderContext({ children }) {
 
 
     // AGREGO PRODUCTO AL CARRITO
+console.log(carrito);
+console.log(precioTotal);
+    const agregarProducto = (producto, cantidad) => {
 
-    const agregarProducto = (producto, stock) => {
+      console.log(cantidad);
+        console.log(producto);
 
         if(estaEnCarrito(producto.id)){
           const newCarrito = [...carrito];
@@ -20,17 +24,30 @@ function ProviderContext({ children }) {
             setCarrito(newCarrito);
             
           }else{
-            setCarrito([...carrito, {producto, stock}]);
-            setCantidadTotal(stock);
-            setPrecioTotal(producto.price * stock);
-        }
+            
+            setCarrito([...carrito,{producto, cantidad} ]);
+            setCantidadTotal(cantidadTotal + cantidad);
+            setPrecioTotal(precioTotal + (producto.price * cantidad));
+            // setPrecioTotal(producto.price * cantidad);
+          }
       }
 
+      // producto.cantidad + cantidad
       // ELIMINO PRODUCTO DEL CARRITO
+
+
     const eliminarProducto = (id) => {
       
-      const newCarrito = [...carrito].map(item => item.id !== id);
+
+      const newCarrito = [...carrito];
+      const index = newCarrito.findIndex(item => item.producto.id === id);
+      const eliminado = newCarrito.splice(index, 1);
+
       setCarrito(newCarrito);
+      setCantidadTotal(cantidadTotal - eliminado[0].cantidad);
+      setPrecioTotal(precioTotal - (eliminado[0].producto.price * eliminado[0].cantidad));
+
+
     }
 
     // ELIMINO TODO EL CARRITO
@@ -40,7 +57,9 @@ function ProviderContext({ children }) {
 
     // ESTA EN EL CARRITO
     const estaEnCarrito = (id) => {
-      return carrito.find(producto => producto.id === id);    
+      
+      return carrito.find((producto) => producto.producto.id === id);
+ 
     }
 
     // VALORES DE CONTEXTO PARA PASARLO COMO VALUE

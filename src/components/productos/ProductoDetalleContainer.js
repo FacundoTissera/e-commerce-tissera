@@ -13,7 +13,7 @@ function ProductoDetalleContainer() {
 
     let productoID = query.get('productoID');
 
-    console.log(productoID);
+    // console.log(productoID);
 
     const [productocount, setProductocount] = useState(null);
 

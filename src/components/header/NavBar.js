@@ -31,8 +31,10 @@ function NavBar() {
                 {/* <Link to="/productos" className="nav-link">PRODUCTOS</Link> */}
                 <Link to="/nosotros" className="nav-link">NOSOTROS</Link>
                 <Link to="/login" className="nav-link">LOGIN</Link>
-                
-                <Link to="/carrito" className="nav-link"> CARRITO {cantidadTotal}  </Link>      
+                {
+                  cantidadTotal !== 0 && <Link to="/carrito" className="nav-link"> CARRITO {cantidadTotal}  </Link>
+                }
+                      
             </div>
         </nav>
     </>
