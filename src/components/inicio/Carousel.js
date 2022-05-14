@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// imagenes del carousel
 import  imagenUno  from "../../assets/images/imagenUno.PNG";
 
 

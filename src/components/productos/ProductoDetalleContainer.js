@@ -9,12 +9,12 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 function ProductoDetalleContainer() {
 
+    // le pego a la url el id del producto que le paso por parametro
     let query = new URLSearchParams(window.location.search);
-
     let productoID = query.get('productoID');
 
-    // console.log(productoID);
 
+    // estado del producto
     const [productocount, setProductocount] = useState(null);
 
     useEffect(() =>  {   
@@ -54,7 +54,7 @@ function ProductoDetalleContainer() {
 
   return (
     <div>
-        
+            {/* hago destructuracion para mostrar el detalle en DetalleProducto */}
         <DetalleProducto data={productocount} />
         {!productocount  && <BeatLoader /> }
     </div>

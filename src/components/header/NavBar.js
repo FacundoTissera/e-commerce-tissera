@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 // rutas de otros componentes
 // import CartWidget from "./CartWidget";
 
-// importacion de estilos
 
+// importacion de estilos
 import "../../assets/sass/navBar.scss";
 
+// contextos de la app
 import { useContext } from 'react';
-
 import { contexto } from '../ProviderContext';
 
 
@@ -17,6 +17,7 @@ import { contexto } from '../ProviderContext';
 
 function NavBar() {
 
+  // me trraigo la cantidad total de providerContext
   const { cantidadTotal } = useContext(contexto);
   
 

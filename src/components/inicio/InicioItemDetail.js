@@ -4,13 +4,15 @@ import {  useNavigate } from 'react-router-dom';
 
 import '../../assets/sass/inicio.scss'
 
+// en el parametro de inicioItemDetail le pongo el producto que destructure en InicioContainer
 function InicioItemDetail({data}) {
 
+    // me traigo la funcion navigate de react-router-dom para redirigir al usuario a la pagina de detalle del producto
     const navigate = useNavigate();
+    const verDetalle = () => {
+      navigate(`/detalle?productoID=${data.id}`);
+    }
 
-  const verDetalle = () => {
-    navigate(`/detalle?productoID=${data.id}`);
-  }
   return (
    
     <>

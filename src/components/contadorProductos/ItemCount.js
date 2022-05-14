@@ -4,18 +4,18 @@ import swAlert from "@sweetalert/with-react";
 
 import '../../assets/sass/itemCount.scss';
 
-
+    // 
 function ItemCount({onAdd , init, stock}) {
     
-    // console.log(stock);
+    ;
+    // estado contador de productos
     const [count, setCount] =  useState(init);
 
 
 
-
+    
     const addToCart = () => {
         onAdd(count);
-       
     }
     
     
