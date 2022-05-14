@@ -14,28 +14,28 @@ function ProviderContext({ children }) {
 console.log(carrito);
 console.log(precioTotal);
     const agregarProducto = (producto, cantidad) => {
-
-      console.log(cantidad);
-        console.log(producto);
-
+;
+// si el pruducto esta en carrito sumar la cantidad
         if(estaEnCarrito(producto.id)){
-          const newCarrito = [...carrito];
-          
-            setCarrito(newCarrito);
+
+          setCarrito(carrito.map(item => item.producto.id === producto.id ? {
+            producto,
+            cantidad: item.cantidad + cantidad
+          } : item));
             
+            setCantidadTotal(cantidadTotal + cantidad);
+            setPrecioTotal(precioTotal + (producto.price * cantidad));
+
           }else{
             
             setCarrito([...carrito,{producto, cantidad} ]);
             setCantidadTotal(cantidadTotal + cantidad);
             setPrecioTotal(precioTotal + (producto.price * cantidad));
-            // setPrecioTotal(producto.price * cantidad);
+            
           }
       }
 
-      // producto.cantidad + cantidad
-      // ELIMINO PRODUCTO DEL CARRITO
-
-
+      // ELIMINO UN PRODUCTO DEL CARRITO
     const eliminarProducto = (id) => {
       
 
@@ -55,14 +55,15 @@ console.log(precioTotal);
         setCarrito([]);
     }
 
-    // ESTA EN EL CARRITO
+    // EL PRODUCTO ESTA EN EL CARRITO
     const estaEnCarrito = (id) => {
       
-      return carrito.find((producto) => producto.producto.id === id);
- 
+      const item = carrito.find((producto) => producto.producto.id === id);
+          console.log(item);
+        return item !== undefined;
     }
 
-    // VALORES DE CONTEXTO PARA PASARLO COMO VALUE
+    // VALORES DE CONTEXTO PARA PASARLO COMO VALUE A LOS COMPONENTES
     
     const valorDelContexto = {
         carrito,

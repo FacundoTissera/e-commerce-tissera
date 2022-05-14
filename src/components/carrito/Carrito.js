@@ -12,10 +12,8 @@ function Carrito() {
 const navigate = useNavigate();
 
 
-    const { carrito, precioTotal, cantidadTotal, eliminarProducto } = useContext(contexto);
-    // console.log(carrito.forEach(element => element.producto.title));
-    // console.log(cantidad_total);
-// console.log(carrito);
+    const { carrito, precioTotal, eliminarProducto } = useContext(contexto);
+  
 
   // terminar compra y mandar a la pagina de pago
 
@@ -38,31 +36,24 @@ const navigate = useNavigate();
   return (
     <div className='container-carrito'>
       <h1 className='titulo-carrito'>CARRITO</h1>
+          <h2 className='titulo-carrito'>¡Tus productos del carrito!</h2>
+      {/* EL CARRITO ESTA VACIO CON BOTON DE VOLVER AL INICO */}
       {
         carrito.length === 0 && 
-          <div>
+          <div className='carrito-vacio'>
             <h2 >Tu carrito está vacío</h2>
             <p>¿No sabés qué comprar? ¡Miles de productos te esperan!</p>
             <button onClick={ volverInicio }>volver al inicio</button>
           </div>
       }
        
-         {/* <article className="listado-edit">
-            <table className="tabla">
-              <thead>
-                <tr className="columnas">
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Precio</th>
-                </tr>
-              </thead>
-              <tbody>  */}
+        {/* MUESTRO LOS PRODUCTOS EN EL CARRITO */}
               <div className='container-carrito-principal'>
                 {
                   carrito.map((item, i) => {
-                    // console.log(item.producto.category);
+                  
                     return  (
-                      
+                      <>
                           <div className='container-producto' key={item.producto.id}>
                               <img className='img-carrito' src={item.producto.image} alt={item.producto.title} />
                               <div>
@@ -75,20 +66,35 @@ const navigate = useNavigate();
                                 <span> ${ item.producto.price } </span> 
                               </div>
                             <button onClick={ eliminarProducto } >Eliminar</button>
+                           
                         </div>
-                        
+                          <div className='linea-separadora-productos'>
+                          
+                        </div>
+                      </>
                         
                         )
                       })
                     }
-                       {/* </tbody>
-            </table>
-          </article> */}
+           {/*     width: 80%;
+    height: 2px;
+    background-color: grey;
+    font-size: 15px;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: flex-end; */
+    /* font-size: 15px; */}
+                    {/* 
+                    SI HAY ´PRODUCTOS SUMO LA CANTIDAD TOTAL 
+                    DE TODOS LOS PRODUCTOS Y PUEDE TERMINAR LA COMPRA O
+                    VOLVER AL INICIO PARA SEGUIR COMPRANDO 
+                     */}
                       {
                         carrito.length > 0 &&
                       <div className='container-precio-final'>
                           <div>
                             <p className='precio-final-carrito'> El precio total a pagar es de: $ { precioTotal }  </p>
+                            <button  onClick={ volverInicio }>SEGUIR COMPRANDO</button>
                             <button onClick={ terminarCompra } >TERMINAR MI COMPRA</button>
                           </div>
                       </div>
