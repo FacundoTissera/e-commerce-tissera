@@ -37,26 +37,26 @@ const navigate = useNavigate();
 
   return (
     <div className='container-carrito'>
-      <h1>CARRITO</h1>
+      <h1 className='titulo-carrito'>CARRITO</h1>
       {
         carrito.length === 0 && 
           <div>
-            <h2>Tu carrito está vacío</h2>
+            <h2 >Tu carrito está vacío</h2>
             <p>¿No sabés qué comprar? ¡Miles de productos te esperan!</p>
             <button onClick={ volverInicio }>volver al inicio</button>
           </div>
       }
        
-          {/* <article className="listado-edit">
+         {/* <article className="listado-edit">
             <table className="tabla">
               <thead>
                 <tr className="columnas">
                   <th scope="col">Nombre</th>
-                  <th scope="col">Precio</th>
                   <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
                 </tr>
               </thead>
-              <tbody> */}
+              <tbody>  */}
               <div className='container-carrito-principal'>
                 {
                   carrito.map((item, i) => {
@@ -74,25 +74,30 @@ const navigate = useNavigate();
                               <div>
                                 <span> ${ item.producto.price } </span> 
                               </div>
-                            <button onClick={ eliminarProducto } >Borrar</button>
+                            <button onClick={ eliminarProducto } >Eliminar</button>
                         </div>
                         
                         
                         )
                       })
                     }
-              </div>
-              {/* </tbody>
+                       {/* </tbody>
             </table>
           </article> */}
+                      {
+                        carrito.length > 0 &&
+                      <div className='container-precio-final'>
+                          <div>
+                            <p className='precio-final-carrito'> El precio total a pagar es de: $ { precioTotal }  </p>
+                            <button onClick={ terminarCompra } >TERMINAR MI COMPRA</button>
+                          </div>
+                      </div>
+                    }
+                    
+              </div>
+             
 
-    {
-      carrito.length > 0 && <div>
-          <button onClick={ terminarCompra } >TERMINAR MI COMPRA</button>
-          <p> el precio total a pagar es de: $ { precioTotal }  </p>
-          <p>cantidad total { cantidadTotal }</p>
-      </div>
-    }
+    
         
       
     </div>
