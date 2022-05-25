@@ -1,0 +1,35 @@
+        USANDO USEFFECT  CON AXIOS
+        useEffect(() => {
+      toast.info("Cargando productos...")
+      
+   const URL ='https://fakestoreapi.com/products';     
+   axios.get(URL)
+   .then(response => {
+         setProductos(response.data);
+         toast.dismiss();
+     toast.success("Productos cargados!")
+   })
+      
+   .catch(err => {
+     console.log(err);
+   }
+   )
+ }, []);
+
+
+ console.log(productos);
+
+
+ CREACION DE UNA PROMESA DE CERO 
+     setTimeout(() => {
+       const pedido = new Promise((resolve, reject) => {
+         resolve(productos);
+       })
+       pedido.then(data => {
+         setProductos(data);
+       })
+       .catch(err => {
+         console.log(err);
+       })
+     },3000);
+ }, [productos]);

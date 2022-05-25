@@ -17,13 +17,14 @@ function InicioItemDetail({data}) {
    
     <>
     <div className='productos' >      
-              <h3 className='titulo-producto'>{data.title}</h3>
-              <img className='img-product' src={data.image} alt={data.title} />
-              <p className='precio-productos' >Price: ${data.price}</p>
+              <h3 className='titulo-producto'>{data.nombre}</h3>
+              <img className='img-product' src={data.imagen} alt={data.nombre} />
+              <p className='precio-productos' >Precio: ${data.precio}</p>
               {/* <p>Category: {data.category}</p> */}
               <button className='btn-ver-detalle' onClick={verDetalle}>Ver Detalle</button>
 
     </div>
+    
     </>
   )
 }

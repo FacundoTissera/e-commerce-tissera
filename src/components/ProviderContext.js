@@ -11,8 +11,8 @@ function ProviderContext({ children }) {
 
 
     // AGREGO PRODUCTO AL CARRITO
-console.log(carrito);
-console.log(precioTotal);
+// console.log(carrito);
+// console.log(precioTotal);
     const agregarProducto = (producto, cantidad) => {
 ;
 // si el pruducto esta en carrito sumar la cantidad
