@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import swAlert from "@sweetalert/with-react";
 import {  useNavigate } from 'react-router-dom';
 import { contexto } from '../ProviderContext';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 // estilos
 
@@ -18,12 +20,37 @@ const navigate = useNavigate();
   // terminar compra y mandar a la pagina de pago
 
     const terminarCompra = () => {
-      swAlert({
-        title: "¡Compra Terminada!",
-        text: "La compra se ha realizado con éxito",
-        icon: "success",
-        button: "OK",
-    });
+
+        const ordenesCollection = collection(db, 'ventas');
+
+        const orden = {
+          buyer : {
+            nombre: "Facundo",
+            apellido: "Tissera",
+            telefono: "3534813541",
+            email: "facundotisserasorribas@gmail.com",
+          },
+            items : carrito,
+            total : `${precioTotal}` ,
+            fecha : new Date().toLocaleString(),
+        }
+
+        const consulta =  addDoc(ordenesCollection, orden)
+
+        consulta
+          .then((resultado) => {
+            console.log(resultado);
+            swAlert({
+              title: "¡Compra Terminada!",
+              text: "La compra se ha realizado con éxito",
+              icon: "success",
+              button: "OK",
+          });
+
+          })
+          .catch(() => {})
+
+
   }
 
   // retorno a la pagina de inicio si no hay nada en el carrito
@@ -31,7 +58,7 @@ const navigate = useNavigate();
     navigate('/');
   }
 
-
+// console.log(carrito);
 
   return (
     <div className='container-carrito'>
@@ -50,20 +77,20 @@ const navigate = useNavigate();
         {/* MUESTRO LOS PRODUCTOS EN EL CARRITO */}
               <div className='container-carrito-principal'>
                 {
-                  carrito.map((item, i) => {
-                  
+                  carrito.map((item) => {
+                  console.log(item.producto.id);
                     return  (
                       <>
-                          <div className='container-producto' key={item.producto.id}>
-                              <img className='img-carrito' src={item.producto.image} alt={item.producto.title} />
+                          <div className='container-producto' key={item.producto.id}  >
+                              <img className='img-carrito' src={item.producto.imagen} alt={item.producto.nombre} />
                               <div>
-                                <h4>{ item.producto.title.substring(0,20) }... </h4> 
+                                <h4>{ item.producto.nombre.substring(0, 20) }... </h4> 
                               </div>
                               <div>
                                 <span>{ item.cantidad }</span>
                               </div>
                               <div>
-                                <span> ${ item.producto.price } </span> 
+                                <span> ${ item.producto.precio } </span> 
                               </div>
                             <button onClick={ eliminarProducto } >Eliminar</button>
                            
@@ -76,14 +103,7 @@ const navigate = useNavigate();
                         )
                       })
                     }
-           {/*     width: 80%;
-    height: 2px;
-    background-color: grey;
-    font-size: 15px;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: flex-end; */
-    /* font-size: 15px; */}
+
                     {/* 
                     SI HAY ´PRODUCTOS SUMO LA CANTIDAD TOTAL 
                     DE TODOS LOS PRODUCTOS Y PUEDE TERMINAR LA COMPRA O

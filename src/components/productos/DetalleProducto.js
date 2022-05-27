@@ -35,17 +35,17 @@ function DetalleProducto({data}) {
         data && 
         <div className="container">
                 <div className='container-detalle' >
-                    <img className='img-detalle' src={data.image} alt={data.title} />
+                    <img className='img-detalle' src={data.imagen} alt={data.nombre} />
                     
                     <div className='container-hijo-detalle'>
-                      <h4 className='nombre-producto' >{data.title}</h4>
+                      <h4 className='nombre-producto' >{data.nombre}</h4>
 
                       <div className='datos-detalle'>
-                        <p className='precio'>${data.price}</p>
-                        <p className='categoria'>Category: {data.category}</p>
+                        <p className='precio'>${data.precio}</p>
+                        <p className='categoria'>Categoria: {data.categoria}</p>
                         
-                        <p className='descripcion'><span className='span-descripcion'> Description: </span>  {data.description}</p>
-                        <p className='stock'>Stock del producto : {data.rating.count}</p>
+                        <p className='descripcion'><span className='span-descripcion'> Description: </span>  {data.descripcion}</p>
+                        {/* <p className='stock'>Stock del producto : {data.rating.count}</p> */}
                         </div>
                           {/* si hay mas de un producto en el estado 
                           itemCarrito que muestre el boton para redirigir
@@ -55,7 +55,7 @@ function DetalleProducto({data}) {
 
                             {/* contador y agregar producto a carrito
                             y destructuro para pasarme el onAdd la iniciacion del value y el stock del producto */}
-                        <ItemCount  onAdd={onAdd} init={1} stock={data.rating.count}/>
+                        <ItemCount  onAdd={onAdd} init={1} stock={data.stock}/>
                     </div>
                 </div>
             </div>

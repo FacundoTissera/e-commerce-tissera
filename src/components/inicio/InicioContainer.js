@@ -20,39 +20,40 @@ import '../../assets/sass/inicio.scss'
 
 function InicioContainer() {
   
-  
     // estado de total de productos 
       const [productos, setProductos] = useState([]);
 
-  // productoscollection es una referencia a la coleccion de productos donde estan todos los documentos
-  useEffect(() => {
-    toast.info("Cargando productos...");
-    const productosCollection =  collection(db, 'productos');
-    
-    const consulta = getDocs(productosCollection);
-    
-    consulta 
-    .then(resultado =>{
+
+
       
-      const productos = resultado.docs.map(items => {
-        const productoConId = {
-          ...items.data(),
-          id: items.id
-        }
-        return(productoConId)
-      })
-      // console.log(productos)
-        toast.dismiss();
-        setProductos(productos)
-        toast.success("Productos cargados!")
-    })
-    .catch(error => {
-            console.log(error)
+      useEffect(() => {
+        toast.info("Cargando productos...");
+// productoscollection es una referencia a la coleccion de productos donde estan todos los documentos
+    const productosCollection =  collection(db, 'productos');
+    const consulta = getDocs(productosCollection);
+        
+        consulta 
+          .then(resultado =>{
+            
+            const productos = resultado.docs.map(items => {
+              const productosConId = {
+                ...items.data(),
+                id: items.id
+              }
+              return(productosConId)
+            })
+            // console.log(productos)
+              toast.dismiss();
+              setProductos(productos)
+              toast.success("Productos cargados!")
           })
-          .finally(() => {
-            console.log('consulta finalizada')
-          })
-          
+          .catch(error => {
+                  console.log(error)
+                })
+                .finally(() => {
+                  console.log('consulta finalizada')
+                })
+                
           
           
           // getDocs() : trae un grupo de documentos, mas de uno seguro

@@ -1,10 +1,14 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { toast } from "react-toastify";
-import axios from 'axios';
+import { db } from '../firebase';
+// collection es una funcion que nos da una referencia a una coleccion de la base de datos
+import { collection, getDoc, doc, getDocs, addDoc, query, where } from 'firebase/firestore';
+
 import DetalleProducto from './DetalleProducto';
 import BeatLoader from "react-spinners/BeatLoader";
-
+;
+// import { mostrarDetalleProducto } from '../apis/apisFirebase'
 // import productos from '../productos.json';
 
 function ProductoDetalleContainer() {
@@ -12,42 +16,38 @@ function ProductoDetalleContainer() {
     // le pego a la url el id del producto que le paso por parametro
     let query = new URLSearchParams(window.location.search);
     let productoID = query.get('productoID');
-
-
+    
     // estado del producto
-    const [productocount, setProductocount] = useState(null);
+    const [ productocount, setProductocount ] = useState(null);
 
-    useEffect(() =>  {   
-        toast.info("Cargando productos...")
-  
-        setTimeout(() => {
+    // console.log(productocount);
 
-            const URL = `https://fakestoreapi.com/products/${productoID}`;
-            axios.get(URL)
-                .then(response => {
-                    toast.dismiss();
-                    setProductocount(response.data);
-                    toast.success("Productos cargados!")
-                })
-                .catch(err => {
-                    console.log(err);
-                })
 
-                
-        // COMO QUEDARIA CON LA CREACION DE UNA PROMESA 
+    useEffect(() =>  {  
 
-            // const pedido = new Promise((resolve, reject) => {
-            //     resolve(productos);
-            // })
-            // pedido.then(data => {
-            //     console.log(data);
-            //     setProductocount(data);
-            // })
-            // .catch(err => {
-            //     console.log(err);
-            // })
-        },100);
-        
+        const productosCollection =  collection(db, 'productos');
+        const docResultado = doc(productosCollection, productoID);
+        const consulta =  getDoc(docResultado)
+
+     consulta 
+        .then(resultado =>{
+            const producto = resultado.data()
+            const productoConId = {
+                ...producto,
+                id: productoID
+            }
+            // console.log({productoConId})
+            
+            setProductocount(productoConId);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+        .finally(() => {
+            console.log('consulta finalizada');
+        })
+
+            toast.success("Productos cargados!")
     } , [productoID]);
 
 // console.log(productocount);
