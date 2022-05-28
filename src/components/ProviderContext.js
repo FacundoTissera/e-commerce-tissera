@@ -38,18 +38,16 @@ function ProviderContext({ children }) {
       // ELIMINO UN PRODUCTO DEL CARRITO
     const eliminarProducto = (id) => {
       
-
+console.log(id);
       const newCarrito = [...carrito];
       console.log(newCarrito);
-      const index = newCarrito.findIndex(item => item.producto.id === id);
+      const index = newCarrito.find(item => item.producto.id === id);
       console.log(index);
       const eliminado = newCarrito.splice(index, 1);
 
       setCarrito(newCarrito);
       setCantidadTotal(cantidadTotal - eliminado[0].cantidad);
       setPrecioTotal(precioTotal - (eliminado[0].producto.precio * eliminado[0].cantidad));
-
-
     }
 
     // ELIMINO TODO EL CARRITO

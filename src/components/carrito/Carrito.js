@@ -80,8 +80,8 @@ const navigate = useNavigate();
                   carrito.map((item) => {
                   console.log(item.producto.id);
                     return  (
-                      <>
-                          <div className='container-producto' key={item.producto.id}  >
+                      <div key={item.producto.id}>
+                          <div className='container-producto'   >
                               <img className='img-carrito' src={item.producto.imagen} alt={item.producto.nombre} />
                               <div>
                                 <h4>{ item.producto.nombre.substring(0, 20) }... </h4> 
@@ -98,7 +98,7 @@ const navigate = useNavigate();
                           <div className='linea-separadora-productos'>
                           
                         </div>
-                      </>
+                      </div>
                         
                         )
                       })
