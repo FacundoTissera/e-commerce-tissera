@@ -11,10 +11,8 @@ function ProviderContext({ children }) {
 
 
     // AGREGO PRODUCTO AL CARRITO
-// console.log(carrito);
-// console.log(precioTotal);
     const agregarProducto = (producto, cantidad) => {
-        
+        console.log(producto);
 // si el pruducto esta en carrito sumar la cantidad
         if(estaEnCarrito(producto.id)){
 
@@ -36,16 +34,16 @@ function ProviderContext({ children }) {
       }
 
       // ELIMINO UN PRODUCTO DEL CARRITO
-    const eliminarProducto = (id) => {
-      
-console.log(id);
+    const eliminarProducto = (producto) => {
+
       const newCarrito = [...carrito];
-      console.log(newCarrito);
-      const index = newCarrito.find(item => item.producto.id === id);
+      
+      const index = newCarrito.findIndex(item => item.producto.id === producto.id);
       console.log(index);
       const eliminado = newCarrito.splice(index, 1);
+      console.log(eliminado);
 
-      setCarrito(newCarrito);
+      setCarrito([...newCarrito]);
       setCantidadTotal(cantidadTotal - eliminado[0].cantidad);
       setPrecioTotal(precioTotal - (eliminado[0].producto.precio * eliminado[0].cantidad));
     }
@@ -59,7 +57,6 @@ console.log(id);
     const estaEnCarrito = (id) => {
       
       const item = carrito.find((producto) => producto.producto.id === id);
-          console.log(item);
         return item !== undefined;
     }
 

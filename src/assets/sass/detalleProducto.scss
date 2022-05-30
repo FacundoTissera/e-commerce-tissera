@@ -20,17 +20,19 @@
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
             margin-bottom: 20px;
             margin-top: 20px;
-            width: 80%;
+            width: 65%;
             
                 .img-detalle{
-                    width: 30%;
-                    margin: 0 15px;
+                    width: 300px;
+                    margin: 10px 15px;
+                    height: 300px;
                 }
                 .container-hijo-detalle{
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
                     align-items: flex-end;
+                    
                 
                         .nombre-producto{
                             width: 70%;

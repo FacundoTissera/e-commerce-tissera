@@ -43,15 +43,20 @@ function InicioContainer() {
               return(productosConId)
             })
             // console.log(productos)
+              
               toast.dismiss();
               setProductos(productos)
+            })
+            .catch(error => {
+              console.log(error)
+            })
+            .finally(() => {
+              console.log('consulta finalizada')
               toast.success("Productos cargados!")
-          })
-          .catch(error => {
-                  console.log(error)
-                })
-                .finally(() => {
-                  console.log('consulta finalizada')
+              setTimeout(() => {
+                toast.dismiss();
+              }, 1000);
+              
                 })
                 
           

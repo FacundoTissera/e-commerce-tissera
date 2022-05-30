@@ -17,6 +17,8 @@ const navigate = useNavigate();
     const { carrito, precioTotal, eliminarProducto } = useContext(contexto);
   
 
+  
+
   // terminar compra y mandar a la pagina de pago
 
     const terminarCompra = () => {
@@ -77,11 +79,11 @@ const navigate = useNavigate();
         {/* MUESTRO LOS PRODUCTOS EN EL CARRITO */}
               <div className='container-carrito-principal'>
                 {
-                  carrito.map((item) => {
-                  console.log(item.producto.id);
+                  carrito.map((item, i) => {
+                  // console.log(item.producto.id);
                     return  (
-                      <div key={item.producto.id}>
-                          <div className='container-producto'   >
+                      <div key={i}>
+                        <div className='container-producto'   >
                               <img className='img-carrito' src={item.producto.imagen} alt={item.producto.nombre} />
                               <div>
                                 <h4>{ item.producto.nombre.substring(0, 20) }... </h4> 
@@ -92,7 +94,7 @@ const navigate = useNavigate();
                               <div>
                                 <span> ${ item.producto.precio } </span> 
                               </div>
-                            <button onClick={ eliminarProducto } >Eliminar</button>
+                            <button id={item.producto.id} onClick={ eliminarProducto } >Eliminar</button>
                            
                         </div>
                           <div className='linea-separadora-productos'>

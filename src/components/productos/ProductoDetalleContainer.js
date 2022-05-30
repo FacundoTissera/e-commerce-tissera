@@ -24,7 +24,7 @@ function ProductoDetalleContainer() {
 
 
     useEffect(() =>  {  
-
+        toast.info("Cargando productos...");
         const productosCollection =  collection(db, 'productos');
         const docResultado = doc(productosCollection, productoID);
         const consulta =  getDoc(docResultado)
@@ -39,15 +39,21 @@ function ProductoDetalleContainer() {
             // console.log({productoConId})
             
             setProductocount(productoConId);
+            toast.dismiss();
         })
+
         .catch(error => {
             console.log(error);
         })
         .finally(() => {
             console.log('consulta finalizada');
+            toast.success("Producto cargados!");
+            
+            setTimeout(() => {
+                toast.dismiss();
+            }, 1000);
         })
 
-            toast.success("Productos cargados!")
     } , [productoID]);
 
 // console.log(productocount);
