@@ -65,7 +65,15 @@ function Carrito() {
         });
 
       })
-      .catch((e) => { console.log(e) })
+      .catch((e) => {
+        console.log(e) 
+          swAlert({
+            title: "Hubo errores!",
+            text: "Intenta denuevo mas tarde..",
+            icon: "warning",
+            button: "Lo siento!"
+          });
+        })
 
       setFormulario(false)
       vaciarCarrito();
