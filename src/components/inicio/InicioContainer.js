@@ -51,7 +51,7 @@ function InicioContainer() {
               console.log(error)
             })
             .finally(() => {
-              console.log('consulta finalizada')
+              
               toast.success("Productos cargados!")
               setTimeout(() => {
                 toast.dismiss();

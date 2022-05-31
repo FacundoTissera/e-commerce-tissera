@@ -46,7 +46,7 @@ function ProductoDetalleContainer() {
             console.log(error);
         })
         .finally(() => {
-            console.log('consulta finalizada');
+        
             toast.success("Producto cargados!");
             
             setTimeout(() => {
