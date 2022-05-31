@@ -47,6 +47,7 @@ function ProviderContext({ children }) {
   // ELIMINO TODO EL CARRITO
   const vaciarCarrito = () => {
     setCarrito([]);
+    setCantidadTotal(0);
   }
 
   // EL PRODUCTO ESTA EN EL CARRITO
