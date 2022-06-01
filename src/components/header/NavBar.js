@@ -18,7 +18,7 @@ import { contexto } from '../ProviderContext';
 function NavBar() {
 
   // me trraigo la cantidad total de providerContext
-  const { cantidadTotal } = useContext(contexto);
+  const { cantidadTotal, admin } = useContext(contexto);
   
 
   return (
@@ -31,7 +31,14 @@ function NavBar() {
                 <Link to="/" className="nav-link">INICIO</Link>
                 {/* <Link to="/productos" className="nav-link">PRODUCTOS</Link> */}
                 <Link to="/nosotros" className="nav-link">NOSOTROS</Link>
-                <Link to="/login" className="nav-link">LOGIN</Link>
+                {
+                  admin === false &&
+                  <Link to="/login" className="nav-link">LOGIN</Link>
+                }
+                {
+                  admin === true &&
+                  <Link to="/login/admin" className="nav-link">ADMINISTRAR</Link>
+                }
                 {
                   cantidadTotal !== 0 && <Link to="/carrito" className="nav-link"> CARRITO {cantidadTotal}  </Link>
                 }

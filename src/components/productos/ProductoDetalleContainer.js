@@ -7,7 +7,7 @@ import { collection, getDoc, doc, getDocs, addDoc, query, where } from 'firebase
 
 import DetalleProducto from './DetalleProducto';
 import BeatLoader from "react-spinners/BeatLoader";
-;
+
 // import { mostrarDetalleProducto } from '../apis/apisFirebase'
 // import productos from '../productos.json';
 

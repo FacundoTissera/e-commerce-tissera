@@ -1,20 +1,23 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import swAlert from "@sweetalert/with-react";
-
+import { contexto } from '../ProviderContext';
 
 function Login() {
   
-    const history = useNavigate();
+  const history = useNavigate();
+  const { loginAdmin } = useContext(contexto);
   
     const submitHandler = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
   
+      const administrador = 'maxiKioscoSorribas@gmail.com';
+      const contrasena = 'Sorribas0106';
       const regexEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
       //password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,//8 a 15 digitos tiene que tener una mayuscula y un numero minimo.
-  
+      
       if (email === "" || password === "") {
         swAlert(
           <div>
@@ -35,7 +38,7 @@ function Login() {
         return;
       }
   
-      if (email !== "maxiKioscoSorribas@gmail.com" || password !== "Sorribas0106") {
+      if (email !== administrador || password !== "Sorribas0106") {
         swAlert(
           <div>
             <h2>Credenciales invalidas</h2>
@@ -44,20 +47,23 @@ function Login() {
         return;
       }
       
-      if (email === "maxiKioscoSorribas@gmail.com" && password === "Sorribas0106") {
-        history("/");
+      if (email === administrador && password === contrasena) {
+        const tokenRecibido = `${administrador}${contrasena}`;
+        // set item guarda en el navegador la info
+        sessionStorage.setItem("token", tokenRecibido);
+        // con sessionStorage.getItem nos trae la info de el set item
+
+
+        history("/login/admin");
+        loginAdmin();
       }
-  
-    
-  
     };
-    // aca guardo el token que el usuario se logea
-    let token = sessionStorage.getItem('token');
+     const token = sessionStorage.getItem("token");
+      
     return (
       <>
-    {/* aca p´regunto si ya tiene token, que lo mande directamente a listado */}
-        {token && <Navigate to="/listado" />}
-  
+      { token === <Navigate to="/login/admin" /> }
+
         <h2>Formulario Login Solo Admins</h2>
   
         <form onSubmit={submitHandler}>

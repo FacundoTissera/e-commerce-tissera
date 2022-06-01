@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 
+
+
 export const contexto = createContext();
 const { Provider } = contexto;
 
@@ -57,6 +59,16 @@ function ProviderContext({ children }) {
     return item !== undefined;
   }
 
+
+  // LOGIN DE ADMINISTRADORES
+  const [admin, setAdmin] = useState(false);
+
+  const loginAdmin = () => {
+    setAdmin(true);
+
+  }
+
+
   // VALORES DE CONTEXTO PARA PASARLO COMO VALUE A LOS COMPONENTES
 
   const valorDelContexto = {
@@ -66,7 +78,11 @@ function ProviderContext({ children }) {
     agregarProducto,
     eliminarProducto,
     vaciarCarrito,
-    estaEnCarrito
+    estaEnCarrito,
+    // funcion de administrador
+    loginAdmin,
+    // estado del administrador
+    admin
 
   }
 
