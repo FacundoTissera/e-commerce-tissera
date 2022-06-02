@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import swAlert from "@sweetalert/with-react";
+import { toast } from "react-toastify";
 
 import '../../assets/sass/itemCount.scss';
 
@@ -16,6 +17,10 @@ function ItemCount({onAdd , init, stock}) {
     
     const addToCart = () => {
         onAdd(count);
+        toast.success("Productos cargados al carrito!");
+        setTimeout(() => {
+            toast.dismiss();
+        }, 1500);
     }
     
     

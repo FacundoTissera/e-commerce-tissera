@@ -62,11 +62,11 @@ function ProviderContext({ children }) {
 
   // LOGIN DE ADMINISTRADORES
   const [admin, setAdmin] = useState(false);
+ 
+//  estado para saber si se muestra el formulario al finalizar la compra
+  const [formularioCliente, setFormularioCLiente] = useState(false);
 
-  const loginAdmin = () => {
-    setAdmin(true);
-
-  }
+  
 
 
   // VALORES DE CONTEXTO PARA PASARLO COMO VALUE A LOS COMPONENTES
@@ -79,10 +79,10 @@ function ProviderContext({ children }) {
     eliminarProducto,
     vaciarCarrito,
     estaEnCarrito,
-    // funcion de administrador
-    loginAdmin,
-    // estado del administrador
-    admin
+    admin,
+    setAdmin,
+    formularioCliente,
+    setFormularioCLiente
 
   }
 

@@ -6,7 +6,7 @@ import { contexto } from '../ProviderContext';
 function Login() {
   
   const history = useNavigate();
-  const { loginAdmin } = useContext(contexto);
+  const { setAdmin } = useContext(contexto);
   
     const submitHandler = (e) => {
       e.preventDefault();
@@ -52,10 +52,10 @@ function Login() {
         // set item guarda en el navegador la info
         sessionStorage.setItem("token", tokenRecibido);
         // con sessionStorage.getItem nos trae la info de el set item
-
+        setAdmin(true);
 
         history("/login/admin");
-        loginAdmin();
+        // loginAdmin();
       }
     };
      const token = sessionStorage.getItem("token");
