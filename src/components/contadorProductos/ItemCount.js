@@ -17,6 +17,7 @@ function ItemCount({onAdd , init, stock}) {
     
     const addToCart = () => {
         onAdd(count);
+        
         toast.success("Productos cargados al carrito!");
         setTimeout(() => {
             toast.dismiss();

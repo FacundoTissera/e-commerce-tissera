@@ -81,7 +81,7 @@ function InicioContainer() {
         // recorro los productos le pido que me muestre 6 productos y hago destructuracion para mostrarlos en InicioItemDetail 
         productos.map((producto, i) => {
           return (
-            i < 6 ? <InicioItemDetail data={producto} key={producto.id} /> : null
+            i < 26 ? <InicioItemDetail data={producto} key={producto.id} /> : null
             )
           })
         }

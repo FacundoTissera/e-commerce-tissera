@@ -16,10 +16,12 @@ import { contexto } from '../ProviderContext';
 
 
 function NavBar() {
-
+  const token = sessionStorage.getItem("token");
   // me trraigo la cantidad total de providerContext
-  const { cantidadTotal, admin } = useContext(contexto);
- 
+  const { cantidadTotal } = useContext(contexto);
+
+
+
   return (
     <>
         <nav>
@@ -31,12 +33,17 @@ function NavBar() {
                 {/* <Link to="/productos" className="nav-link">PRODUCTOS</Link> */}
                 <Link to="/nosotros" className="nav-link">NOSOTROS</Link>
                 {
-                  admin  === true &&
+                  token === null ?
+                  <Link to="/login" className="nav-link">LOGIN</Link>
+                  :
                   <Link to="/login/admin" className="nav-link">ADMINISTRAR</Link>
+
                 }
                 { 
-                  admin === false &&
-                  <Link to="/login" className="nav-link">LOGIN</Link> 
+
+                  // !token &&
+                  //   admin === false &&
+                   
                 }
                 {
                 }

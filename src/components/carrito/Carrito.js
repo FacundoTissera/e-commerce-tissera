@@ -11,11 +11,15 @@ import '../../assets/sass/carrito.scss'
 function Carrito() {
 
   const navigate = useNavigate();
-  const { carrito, precioTotal, eliminarProducto, setFormularioCLiente } = useContext(contexto);
+  const { carrito, precioTotal, eliminarProducto, setFormularioCliente, formularioCliente } = useContext(contexto);
   
   // terminar compra y mandar a la pagina de pago
   const confirmarCompra = () => {
-    setFormularioCLiente(true)
+    if(formularioCliente === true){
+      setFormularioCliente(false);
+    }else{
+      setFormularioCliente(true);
+    }
   }
   // retorno a la pagina de inicio si no hay nada en el carrito
   const volverInicio = () => {

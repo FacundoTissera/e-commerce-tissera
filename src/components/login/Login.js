@@ -1,6 +1,7 @@
 import { React, useContext } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-import swAlert from "@sweetalert/with-react";
+// import swAlert from "@sweetalert/with-react";
+import Swal from 'sweetalert2'
 import { contexto } from '../ProviderContext';
 
 function Login() {
@@ -19,38 +20,55 @@ function Login() {
       //password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,//8 a 15 digitos tiene que tener una mayuscula y un numero minimo.
       
       if (email === "" || password === "") {
-        swAlert(
-          <div>
-            <h2>Los campos no pueden estar vacios</h2>
-            <p>los campos de email y contraseña estan vacios</p>
-          </div>
-        );
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Debes completar todos los campos',
+      });
         return;
       }
   
       if (email !== "" && !regexEmail.test(email)) {
-        swAlert(
-          <div>
-            <h2>debes escribir un email valido</h2>
-          </div>
-        );
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Debes completar con un email valido',
+      });
   
         return;
       }
   
       if (email !== administrador || password !== "Sorribas0106") {
-        swAlert(
-          <div>
-            <h2>Credenciales invalidas</h2>
-          </div>
-        );
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Las credenciales no son correctas',
+      });
+        
         return;
       }
       
       if (email === administrador && password === contrasena) {
+        
         const tokenRecibido = `${administrador}${contrasena}`;
         // set item guarda en el navegador la info
         sessionStorage.setItem("token", tokenRecibido);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'center',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'Logueado Correctamente'
+        })
         // con sessionStorage.getItem nos trae la info de el set item
         setAdmin(true);
 

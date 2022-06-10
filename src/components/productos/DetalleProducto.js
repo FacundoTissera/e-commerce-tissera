@@ -8,19 +8,22 @@ import '../../assets/sass/detalleProducto.scss'
 
 // en el parametro de DetalleProducto le pongo el producto que destructure en ProductoDetalleContainer
 function DetalleProducto({data}) {
+// console.log(data);
 
-  // me traigo la funcion navigate de react-router-dom para redirigir al usuario a la pagina de detalle del producto
-  const navigate = useNavigate();
+// me traigo la funcion navigate de react-router-dom para redirigir al usuario a la pagina de detalle del producto
+const navigate = useNavigate();
 
-  // estado de cantidad de productos
-  const [itemCarrito, setItemCarrito] = useState(0);
+// estado de cantidad de productos
+const [itemCarrito, setItemCarrito] = useState(0);
 
-  // me traigo la funcion agregar producto del contexto
-  const { agregarProducto } = useContext(contexto);
+// me traigo la funcion agregar producto del contexto
+const { agregarProducto } = useContext(contexto);
 
-  // agrego el producto al carrito
-  const onAdd = (cantidad) => {
-    setItemCarrito(cantidad);
+// agrego el producto al carrito
+const onAdd = (cantidad) => {
+  
+  setItemCarrito(cantidad);
+
     agregarProducto(data, cantidad);
   }
   // redirijo al usuario al carrito

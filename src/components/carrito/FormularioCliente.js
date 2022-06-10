@@ -1,5 +1,6 @@
 import {React, useContext, useState } from 'react';
-import swAlert from "@sweetalert/with-react";
+
+import Swal from 'sweetalert2'
 
 import { useNavigate } from 'react-router-dom';
 import { contexto } from '../ProviderContext';
@@ -12,7 +13,7 @@ function FormularioCliente() {
 
 
     const navigate = useNavigate();
-    const { carrito, precioTotal, vaciarCarrito, formularioCliente, setFormularioCLiente } = useContext(contexto);
+    const { carrito, precioTotal, vaciarCarrito, formularioCliente, setFormularioCliente } = useContext(contexto);
     // estado para mostrar el formulario de datos del cliente
    
 
@@ -30,13 +31,12 @@ function FormularioCliente() {
         const email = e.target.email.value;
 
         if (nombre === "" || apellido === "" || telefono === "" ) {
-        swAlert(
-            <div>
-            <h2>Los campos estan vacios</h2>
-            <p>Por favor llene todos los campos</p>
-            <p>los campos de Nombre, Apellido y Telefono no pueden estar vacios</p>
-            </div>
-        );
+            Swal.fire({
+                icon: 'error',
+                title: 'Los campos estan vacios',
+                text: 'los campos de Nombre, Apellido y Telefono no pueden estar vacioss',
+            });
+
         return;
         }
 
@@ -59,25 +59,25 @@ function FormularioCliente() {
         consulta
         .then((resultado) => {
             console.log(resultado);
-            swAlert({
-            title: "¡Compra Terminada!",
-            text: "La compra se ha realizado con éxito",
-            icon: "success",
-            button: "OK",
-            });
+            Swal.fire({
+                icon: 'success',
+                title: '¡Compra Terminada!',
+                text: 'La compra se ha realizado con éxito',
+                button: "OK",
+              });   
 
         })
         .catch((e) => {
             console.log(e) 
-            swAlert({
-                title: "Hubo errores!",
-                text: "Intenta denuevo mas tarde..",
-                icon: "warning",
-                button: "Lo siento!"
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo salió mal, intenta de nuevo',
             });
-            })
 
-        setFormularioCLiente(false)
+            })
+        
+        setFormularioCliente(true)
         vaciarCarrito();
         navigate('/')
         }

@@ -11,6 +11,7 @@ function ProviderContext({ children }) {
   const [cantidadTotal, setCantidadTotal] = useState(0);
   const [precioTotal, setPrecioTotal] = useState(0);
 
+  
 
   // AGREGO PRODUCTO AL CARRITO
   const agregarProducto = (producto, cantidad) => {
@@ -64,7 +65,7 @@ function ProviderContext({ children }) {
   const [admin, setAdmin] = useState(false);
  
 //  estado para saber si se muestra el formulario al finalizar la compra
-  const [formularioCliente, setFormularioCLiente] = useState(false);
+  const [formularioCliente, setFormularioCliente] = useState(false);
 
   
 
@@ -82,7 +83,7 @@ function ProviderContext({ children }) {
     admin,
     setAdmin,
     formularioCliente,
-    setFormularioCLiente
+    setFormularioCliente
 
   }
 
