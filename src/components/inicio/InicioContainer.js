@@ -15,7 +15,7 @@ import InicioItemDetail from './InicioItemDetail';
 // import productos from '../productos.json';
 
 import '../../assets/sass/inicio.scss'
-
+import whatsApp from '../../assets/images/whatsapp.png';
 
 
 function InicioContainer() {
@@ -85,7 +85,13 @@ function InicioContainer() {
             )
           })
         }
+        {/* <!--BOTON DE WHATSAPP--> */}
       </div>
+      <button class="button-whatsapp" >
+          <a href="https://api.whatsapp.com/send?phone=+543534813541&text=¡Hola%20necesito%20información%20sobre%20">
+              <img src={whatsApp} alt="whatsapp" class="whatsapp" />
+          </a>
+      </button>
 
     </>
 

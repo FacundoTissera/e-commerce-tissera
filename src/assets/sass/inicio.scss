@@ -61,3 +61,14 @@
                 }
         }
 }
+.button-whatsapp{
+    background-color: transparent;
+    position: fixed;
+    right: 11px;
+    bottom: 20px;
+    border: none;
+
+    .whatsapp{
+        width: 70px;
+    }
+}
