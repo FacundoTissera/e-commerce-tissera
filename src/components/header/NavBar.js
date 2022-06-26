@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-
+import BuscadorContainer from './BuscadorContainer';
 // rutas de otros componentes
 // import CartWidget from "./CartWidget";
 
@@ -11,9 +11,6 @@ import "../../assets/sass/navBar.scss";
 // contextos de la app
 import { useContext } from 'react';
 import { contexto } from '../ProviderContext';
-
-
-
 
 function NavBar() {
   const token = sessionStorage.getItem("token");
@@ -39,6 +36,14 @@ function NavBar() {
                   <Link to="/login/admin" className="nav-link">ADMINISTRAR</Link>
 
                 }
+                {/* <FontAwesomeIcon icon={solid('user-secret')} /> */}
+                {/* buscador de productos */}
+                <BuscadorContainer />
+                
+                
+                
+                {/* <input type="text" placeholder="Buscar" /> */}
+                
                 { 
 
                   // !token &&

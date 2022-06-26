@@ -1,7 +1,7 @@
 import { React, useContext } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 // import swAlert from "@sweetalert/with-react";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { contexto } from '../ProviderContext';
 
 function Login() {

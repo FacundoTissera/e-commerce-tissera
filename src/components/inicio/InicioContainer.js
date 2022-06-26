@@ -30,7 +30,9 @@ function InicioContainer() {
         toast.info("Cargando productos...");
 // productoscollection es una referencia a la coleccion de productos donde estan todos los documentos
     const productosCollection =  collection(db, 'productos');
+    // getDocs es una funcion que nos da una referencia a todos los documentos de la coleccion
     const consulta = getDocs(productosCollection);
+    
         
         consulta 
           .then(resultado =>{
@@ -87,9 +89,9 @@ function InicioContainer() {
         }
         {/* <!--BOTON DE WHATSAPP--> */}
       </div>
-      <button class="button-whatsapp" >
-          <a href="https://api.whatsapp.com/send?phone=+543534813541&text=¡Hola%20necesito%20información%20sobre%20">
-              <img src={whatsApp} alt="whatsapp" class="whatsapp" />
+      <button className="button-whatsapp" >
+          <a href="https://api.whatsapp.com/send?phone=+543534813541&text=¡Hola%20�!%20Tengo%20la%20siguiente%20consulta:">
+              <img src={whatsApp} alt="whatsapp" className="whatsapp" />
           </a>
       </button>
 

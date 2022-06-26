@@ -10,6 +10,7 @@ import Carrito from "./carrito/Carrito";
 import Nosotroscontainer from "./nosotros/Nosotroscontainer";
 import Login from "./login/Login";
 import Admin from "./admin/Admin";
+import ResultadoBusqueda from "./header/ResultadoBusqueda";
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
@@ -31,6 +32,8 @@ function App() {
           <Route path="/carrito" element={<Carrito  />} />
           <Route path="/login" element={<Login  />} />
           <Route path="/login/admin" element={<Admin  />} />
+          <Route path="/busqueda" element={<ResultadoBusqueda  />} />
+
         </Routes>
       <ToastContainer />
     
