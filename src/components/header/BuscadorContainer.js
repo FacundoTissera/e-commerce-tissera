@@ -35,41 +35,6 @@ function BuscadorContainer() {
             history(`/busqueda?keyword=${keyword}`);
         }
     }
-    //     // busco el producto en la base de datos
-    //     const productosEnBusqueda = collection(db, 'productos');
-    //     const consulta = getDocs(productosEnBusqueda);
-    //     consulta
-    //         .then(resultado => {
-    //             const productos = resultado.docs.map(items => {
-    //                 const productosConId = {
-    //                     ...items.data(),
-    //                     id: items.id
-    //                 }
-    //                 return (productosConId)
-    //             })
-            
-
-    //             // filtro los productos que coincidan con la busqueda
-    //             productos.forEach(producto => {
-    //                 if (producto.nombre.toLowerCase().trim() === busqueda.toLowerCase().trim()) {
-
-    //                     setProductoEncontrado(producto);
-    //                     setNavegarBusqueda(true);
-    //                     history('/busqueda');
-
-    //                 }
-    //             })
-    //         }
-            
-
-
-    //         )
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-
-    // }
-
 
 
     return (

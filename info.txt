@@ -2,7 +2,7 @@
         useEffect(() => {
       toast.info("Cargando productos...")
       
-   const URL ='https://fakestoreapi.com/products';     
+   const URL ='https:fakestoreapi.com/products';     
    axios.get(URL)
    .then(response => {
          setProductos(response.data);
@@ -33,3 +33,21 @@
        })
      },3000);
  }, [productos]);
+
+ BUSCADOR DE PRODUCTOS 
+ 
+     encontrar por categoria
+                 let categoriaEncontrada = [];
+                 for(let producto of productos){
+                    
+                     let categoria = producto.categoria.toLowerCase().trim();
+                   
+                         if(categoria.indexOf(productosResultado.categoria) !== -1){
+
+
+                              categoriaEncontrada.push(producto); 
+                             }
+                            
+                             setProductosCategorias(categoriaEncontrada);
+                         } 
+                 })

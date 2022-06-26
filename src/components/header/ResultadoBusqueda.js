@@ -35,28 +35,8 @@ function ResultadoBusqueda() {
                         setProductosResultados(producto);
                     }
                 }
-                
-                
-                //encontrar por categoria
-                // let categoriaEncontrada = [];
-                // for(let producto of productos){
-                    
-                //     let categoria = producto.categoria.toLowerCase().trim();
-                   
-                //         if(categoria.indexOf(productosResultado.categoria) !== -1){
+            })
 
-
-                //              categoriaEncontrada.push(producto); 
-                //             }
-                            
-                //             setProductosCategorias(categoriaEncontrada);
-                //         } 
-                // })
-                })
-               
-
-            
-            
             .catch(error => {
                 Swal.fire({
                     title: 'Hubo errores!',
@@ -135,24 +115,6 @@ console.log('productos categorias', productosCategorias);
                             <p>{productosResultado.precio}</p>
                             <img width='100px' src={productosResultado.imagen} alt={productosResultado.nombre} />
                         </div>
-                  
-                
-                  
-                
-
-            // productosResultado.length === 0 ? <p>no encontre nada puto</p> : 
-            
-            // productosResultado.map(producto => {
-            //     return (
-            //         <div key={producto.id}>
-            //             <p>{producto.nombre}</p>
-            //             <p>{producto.categoria}</p>
-            //             <img width='200' src={producto.imagen} alt= {producto.nombre} />
-            //         </div>
-            //     )
-            // }
-            // ) 
-            
         }
     </div>
 
