@@ -17,9 +17,9 @@ function AgregarProductos() {
     // const imagen = e.target.imagen.value;
     const categoria = e.target.categoria.value;
     const stock = e.target.stock.value;
-    const imagen = e.target.imagen.files[0].name;
-    const imagenUrl = e.target.imagen.files[0];
-    console.log(imagenUrl);
+    // const imagen = e.target.imagen.files[0].name;
+    // const imagenUrl = e.target.imagen.files[0];
+    // console.log(imagenUrl);
 
 // push una imagen a public/images
 
@@ -39,7 +39,7 @@ function AgregarProductos() {
         descripcion: descripcion,
         categoria: categoria,
         stock: stock,
-        imagen: `../images/${imagen}`
+        // imagen: `../images/${imagen}`
       }
 
     const addProduct = addDoc(ProductoCollection, OrdenAgregarProducto);

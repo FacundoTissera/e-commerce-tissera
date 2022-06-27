@@ -40,15 +40,10 @@ function BuscadorContainer() {
     return (
         <div className="contenedor-buscador">
             <form onSubmit={handleSubmit} >
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-
-            <input type="text" placeholder="Buscar productos" name='keyword'/>
-
-               <button>
-                <FontAwesomeIcon icon={faArrowRight}  />
-                </button> 
                 
-                    
+                {/* <FontAwesomeIcon icon={faArrowRight} /> */}
+                    <input type="text" placeholder="Buscar productos" name='keyword'/>
+               <button><FontAwesomeIcon icon={faMagnifyingGlass} />  </button> 
             </form>
             
         </div>

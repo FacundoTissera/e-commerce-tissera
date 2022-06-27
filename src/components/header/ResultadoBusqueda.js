@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { toast } from "react-toastify";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import BeatLoader from "react-spinners/BeatLoader";
+import swal from '@sweetalert/with-react';
 
 
 function ResultadoBusqueda() {
@@ -34,6 +36,14 @@ function ResultadoBusqueda() {
                     if(nombre.indexOf(keyword) !== -1){
                         setProductosResultados(producto);
                     }
+                    // else{
+                    //     Swal.fire({
+                    //         title: 'No se encontraron resultados',
+                    //         text: 'Por favor intente con otra palabra',
+                    //         icon: 'info',
+                    //         confirmButtonText: 'Aceptar'
+                    //     })
+                    // }
                 }
             })
 
@@ -54,7 +64,8 @@ function ResultadoBusqueda() {
             }
             )
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [keyword]);
+
 
     useEffect(() => {
         const productosCollection = collection(db, 'productos');
@@ -96,6 +107,7 @@ function ResultadoBusqueda() {
     }, [productosResultado]);
 
 
+    
 console.log('productos', productosResultado.categoria);
 console.log('productos categorias', productosCategorias);
 
@@ -104,11 +116,9 @@ console.log('productos categorias', productosCategorias);
     <>
     <h3>buscaste : <em>{keyword} </em> </h3>
     <div>
-        {
-            productosResultado.length === 0 ?  <h3>No se encontraron resultados</h3>:   
-               
+    {
+            productosResultado.length === 0 ?  <BeatLoader /> :   
 
-               
                         <div key={productosResultado.id}>
                             <h4>{productosResultado.nombre}</h4>
                             <p>{productosResultado.descripcion}</p>
