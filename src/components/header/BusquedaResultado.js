@@ -4,11 +4,11 @@ import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { toast } from "react-toastify";
 import Swal from 'sweetalert2';
-import BeatLoader from "react-spinners/BeatLoader";
-import swal from '@sweetalert/with-react';
+import BusquedaDestructurada from './BusquedaDestructurada';
+// import BeatLoader from "react-spinners/BeatLoader";
 
 
-function ResultadoBusqueda() {
+function BusquedaResultado() {
     let query = new URLSearchParams(window.location.search);
     let keyword = query.get('keyword');
 
@@ -36,14 +36,6 @@ function ResultadoBusqueda() {
                     if(nombre.indexOf(keyword) !== -1){
                         setProductosResultados(producto);
                     }
-                    // else{
-                    //     Swal.fire({
-                    //         title: 'No se encontraron resultados',
-                    //         text: 'Por favor intente con otra palabra',
-                    //         icon: 'info',
-                    //         confirmButtonText: 'Aceptar'
-                    //     })
-                    // }
                 }
             })
 
@@ -85,12 +77,8 @@ function ResultadoBusqueda() {
 
                 let categoriaEncontrada = productos.filter(producto => {
                     let categoria = productosResultado.categoria
-                console.log(producto.categoria);
-                console.log(productosResultado);
-
                 if (producto.categoria.toLowerCase().trim() === categoria) {
                         return producto;
-
                     }
                     
                     return null;
@@ -106,46 +94,21 @@ function ResultadoBusqueda() {
 
     }, [productosResultado]);
 
+   
 
-    
 console.log('productos', productosResultado.categoria);
 console.log('productos categorias', productosCategorias);
 
 
   return (
     <>
-    <h3>buscaste : <em>{keyword} </em> </h3>
-    <div>
-    {
-            productosResultado.length === 0 ?  <BeatLoader /> :   
-
-                        <div key={productosResultado.id}>
-                            <h4>{productosResultado.nombre}</h4>
-                            <p>{productosResultado.descripcion}</p>
-                            <p>{productosResultado.precio}</p>
-                            <img width='100px' src={productosResultado.imagen} alt={productosResultado.nombre} />
-                        </div>
-        }
-    </div>
-
-    <div> 
-        <h3>Otros productos relacionados con tu busqueda</h3>
-        {
-            productosCategorias.map(producto => {
-                return (
-                    <div key={producto.id}>
-                        <p>{producto.nombre}</p>
-                        <p>{producto.categoria}</p>
-                        <img width='200' src={producto.imagen} alt= {producto.nombre} />
-                    </div>
-                )
-            })
-        }
-    </div>
-
-      
+        <h3>buscaste : <em>{keyword} </em> </h3>
+            <div>
+                { productosResultado.length <= 0 &&   <p>no hay resultados para tu busqueda..</p>}
+            </div>
+        <BusquedaDestructurada busqueda={productosResultado} ProductosRelacionados={productosCategorias} />
     </>
   )
 }
 
-export default ResultadoBusqueda;
+export default BusquedaResultado;

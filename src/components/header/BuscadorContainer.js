@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import Swal from 'sweetalert2'
 // import { solid } from '@fortawesome/fontawesome-svg-core/import.macro' 
-import { faMagnifyingGlass, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -43,7 +43,7 @@ function BuscadorContainer() {
                 
                 {/* <FontAwesomeIcon icon={faArrowRight} /> */}
                     <input type="text" placeholder="Buscar productos" name='keyword'/>
-               <button><FontAwesomeIcon icon={faMagnifyingGlass} />  </button> 
+               <button><FontAwesomeIcon icon={faMagnifyingGlass} /> </button> 
             </form>
             
         </div>
